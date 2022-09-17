@@ -99,9 +99,9 @@ app.post("/api/v1/product", async (req, res, next) => {
     // save
     const product = new Product(req.body);
 
-    if (product.quantity == 0) {
-      product.status = "out-of-stock";
-    }
+    // if (product.quantity == 0) {
+    //   product.status = "out-of-stock";
+    // }
 
     const result = await product.save();
 
