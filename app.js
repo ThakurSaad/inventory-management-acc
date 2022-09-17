@@ -51,6 +51,14 @@ const productSchema = mongoose.Schema({
     },
     message: "Quantity must be an integer",
   },
+  status: {
+    type: String,
+    required: true,
+    enum: {
+      value: ["in-stock", "out-of-stock", "discontinued"],
+      message: "Status can not be {VALUE}",
+    },
+  },
 });
 
 app.get("/", (req, res) => {
