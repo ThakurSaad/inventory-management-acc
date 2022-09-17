@@ -105,6 +105,11 @@ productSchema.pre("save", function (next) {
 //   next();
 // });
 
+// mongoose instance methods
+productSchema.methods.logger = function () {
+  console.log(`Data saved for ${this.name}`);
+};
+
 // creating model
 const Product = mongoose.model("Product", productSchema);
 
@@ -115,16 +120,18 @@ app.get("/", (req, res) => {
 app.post("/api/v1/product", async (req, res, next) => {
   try {
     // save
-    const product = new Product(req.body);
+    // const product = new Product(req.body);
 
     // if (product.quantity == 0) {
     //   product.status = "out-of-stock";
     // }
 
-    const result = await product.save();
+    // const result = await product.save();
 
     // create
-    // const result = await Product.create(req.body);
+    const result = await Product.create(req.body);
+
+    result.logger();
 
     res.status(200).json({
       status: "Success",
