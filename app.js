@@ -29,7 +29,10 @@ const productSchema = mongoose.Schema({
   unit: {
     type: String,
     required: true,
-    enum: ["kg", "litre", "pcs"],
+    enum: {
+      value: ["kg", "litre", "pcs"],
+      message: "unit value can not be value, must be kg/liter/pcs",
+    },
   },
 });
 
