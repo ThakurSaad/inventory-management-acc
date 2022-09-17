@@ -67,6 +67,8 @@ const productSchema = mongoose.Schema({
   //   type: Date,
   //   default: Date.now,
   // },
+}, {
+  timestamps: true,
 });
 
 app.get("/", (req, res) => {
