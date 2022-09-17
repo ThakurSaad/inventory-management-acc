@@ -98,12 +98,12 @@ productSchema.pre("save", function (next) {
   next();
 });
 
-// mongoose middleware for saving data: post
-productSchema.post("save", function (doc, next) {
-  console.log("After saving data");
+// // mongoose middleware for saving data: post
+// productSchema.post("save", function (doc, next) {
+//   console.log("After saving data");
 
-  next();
-});
+//   next();
+// });
 
 // creating model
 const Product = mongoose.model("Product", productSchema);
