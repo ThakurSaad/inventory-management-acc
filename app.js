@@ -94,4 +94,27 @@ app.get("/", (req, res) => {
   res.send("Route is working! YaY!");
 });
 
+app.post("/api/v1/product", async (req, res, next) => {
+  // save
+  try {
+    const product = new Product(req.body);
+
+    const result = await product.save();
+
+    res.status(200).json({
+      status: "Success",
+      message: "Data inserted Successfully",
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+
+    res.status(400).json({
+      status: "Fail",
+      message: "Data not inserted",
+      error: error.message,
+    });
+  }
+});
+
 module.exports = app;
