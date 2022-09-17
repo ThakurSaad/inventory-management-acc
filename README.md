@@ -9,3 +9,4 @@
 - cors
 - dotenv
 - mongoose
+- colors
