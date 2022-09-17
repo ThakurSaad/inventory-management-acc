@@ -72,6 +72,15 @@ const productSchema = mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Supplier",
     },
+    categories: [
+      {
+        name: {
+          type: String,
+          required: true,
+        },
+        _id: mongoose.Schema.Types.ObjectId,
+      },
+    ],
   },
   {
     timestamps: true,
