@@ -17,6 +17,10 @@ const productSchema = mongoose.Schema({
     minLength: [3, "Name must be at least 3 characters"],
     maxLength: [100, "Name is too large"],
   },
+  description: {
+    type: String,
+    required: true,
+  },
 });
 
 app.get("/", (req, res) => {
