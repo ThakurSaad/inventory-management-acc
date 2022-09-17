@@ -152,7 +152,7 @@ app.post("/api/v1/product", async (req, res, next) => {
 app.get("/api/v1/product", async (req, res, next) => {
   try {
     const products = await Product.find({
-      status: { $ne: "out-of-stock" },
+      $or: [{ _id: "6325a76dd2e5e1aaa585f4ba" }, { name: "Mango" }],
     });
 
     res.status(200).json({
