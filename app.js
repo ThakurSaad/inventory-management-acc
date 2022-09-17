@@ -26,6 +26,11 @@ const productSchema = mongoose.Schema({
     required: true,
     min: [0, "Price can not be negative"],
   },
+  unit: {
+    type: String,
+    required: true,
+    enum: ["kg", "litre", "pcs"],
+  },
 });
 
 app.get("/", (req, res) => {
