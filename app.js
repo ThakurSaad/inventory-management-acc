@@ -21,6 +21,11 @@ const productSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  price: {
+    type: Number,
+    required: true,
+    min: [0, "Price can not be negative"],
+  },
 });
 
 app.get("/", (req, res) => {
