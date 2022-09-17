@@ -149,4 +149,22 @@ app.post("/api/v1/product", async (req, res, next) => {
   }
 });
 
+app.get("/api/v1/product", async (req, res, next) => {
+  try {
+    const products = await Product.find({});
+
+    res.status(200).json({
+      status: "Success",
+      message: "Data found",
+      data: products,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "Fail",
+      message: "Can not get the data",
+      error: error.message,
+    });
+  }
+});
+
 module.exports = app;
