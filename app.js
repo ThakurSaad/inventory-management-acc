@@ -31,7 +31,7 @@ const productSchema = mongoose.Schema(
       type: String,
       required: true,
       enum: {
-        value: ["kg", "litre", "pcs"],
+        values: ["kg", "litre", "pcs"],
         message: "unit value can not be value, must be kg/liter/pcs",
       },
     },
@@ -56,7 +56,7 @@ const productSchema = mongoose.Schema(
       type: String,
       required: true,
       enum: {
-        value: ["in-stock", "out-of-stock", "discontinued"],
+        values: ["in-stock", "out-of-stock", "discontinued"],
         message: "Status can not be {VALUE}",
       },
     },
