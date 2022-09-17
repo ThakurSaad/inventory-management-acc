@@ -68,6 +68,10 @@ const productSchema = mongoose.Schema(
     //   type: Date,
     //   default: Date.now,
     // },
+    supplier: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Supplier",
+    },
   },
   {
     timestamps: true,
