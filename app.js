@@ -94,4 +94,34 @@ app.get("/", (req, res) => {
   res.send("Route is working! YaY!");
 });
 
+app.post("/api/v1/product", async (req, res, next) => {
+  try {
+    // save
+    const product = new Product(req.body);
+
+    if (product.quantity == 0) {
+      product.status = "out-of-stock";
+    }
+
+    const result = await product.save();
+
+    // create
+    // const result = await Product.create(req.body);
+
+    res.status(200).json({
+      status: "Success",
+      message: "Data inserted Successfully",
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+
+    res.status(400).json({
+      status: "Fail",
+      message: "Data not inserted",
+      error: error.message,
+    });
+  }
+});
+
 module.exports = app;
