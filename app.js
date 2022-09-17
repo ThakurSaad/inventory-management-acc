@@ -87,6 +87,20 @@ const productSchema = mongoose.Schema(
   }
 );
 
+// mongoose middleware for saving data: pre
+productSchema.pre("save", function (next) {
+  console.log("Before saving data");
+
+  next();
+});
+
+// mongoose middleware for saving data: post
+productSchema.post("save", function (doc, next) {
+  console.log("After saving data");
+
+  next();
+});
+
 // creating model
 const Product = mongoose.model("Product", productSchema);
 
