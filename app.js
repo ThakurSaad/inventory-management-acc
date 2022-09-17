@@ -87,6 +87,9 @@ const productSchema = mongoose.Schema(
   }
 );
 
+// creating model
+const Product = mongoose.model("Product", productSchema);
+
 app.get("/", (req, res) => {
   res.send("Route is working! YaY!");
 });
