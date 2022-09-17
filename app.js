@@ -34,6 +34,23 @@ const productSchema = mongoose.Schema({
       message: "unit value can not be value, must be kg/liter/pcs",
     },
   },
+  quantity: {
+    type: Number,
+    required: true,
+    min: [0, "Quantity can not be negative"],
+    validate: {
+      validator: (value) => {
+        const isInteger = Number.isInteger(value);
+
+        if (isInteger) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+    },
+    message: "Quantity must be an integer",
+  },
 });
 
 app.get("/", (req, res) => {
