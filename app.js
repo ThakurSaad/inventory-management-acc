@@ -95,11 +95,13 @@ app.get("/", (req, res) => {
 });
 
 app.post("/api/v1/product", async (req, res, next) => {
-  // save
   try {
-    const product = new Product(req.body);
+    // save
+    // const product = new Product(req.body);
+    // const result = await product.save();
 
-    const result = await product.save();
+    // create
+    const result = await Product.create(req.body);
 
     res.status(200).json({
       status: "Success",
