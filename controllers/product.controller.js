@@ -24,7 +24,7 @@ exports.getProducts = async (req, res, next) => {
 exports.createProduct = async (req, res, next) => {
   try {
     // create
-    const result = await createProductService();
+    const result = await createProductService(req.body);
 
     result.logger();
 
