@@ -151,17 +151,12 @@ app.post("/api/v1/product", async (req, res, next) => {
 
 app.get("/api/v1/product", async (req, res, next) => {
   try {
-    const products = await Product.where("name")
-      .equals(/\w/)
-      .where("quantity")
-      .gte("100")
-      .limit(2)
-      .sort({ quantity: -1 });
+    const product = await Product.findById("6325a0c81e7a0ddea86416d2");
 
     res.status(200).json({
       status: "Success",
       message: "Data found",
-      data: products,
+      data: product,
     });
   } catch (error) {
     res.status(400).json({
