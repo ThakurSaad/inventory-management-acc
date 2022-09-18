@@ -16,5 +16,9 @@ exports.updateProductService = async (productId, data) => {
     { $set: data },
     { runValidators: true }
   );
+
+  // const product = await Product.findById(productId);
+  // const result = await product.set(data).save();
+
   return result;
 };
