@@ -8,6 +8,13 @@ This is my first project where I am designing the <b>Schema</b> and using <b>MVC
 
 I used <b>Service Layer Architecture with MVC</b>. The concepts used in this projects are <b>Fat Model/Thin Controller</b> and <b>Separation of Concern</b>. By using these concepts the code is structured in an organized way.
 
+### Design overview
+
+- <b>controllers:</b> All the controllers.
+- <b>models:</b> Schema design and the Product model.
+- <b>routes:</b> All the routes.
+- <b>services:</b> All the business logic/database call.
+
 ### Installed packages
 
 - node

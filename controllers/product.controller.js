@@ -1,8 +1,12 @@
-const Product = require("../models/Product.js");
+const {
+  getProductsService,
+  createProductService,
+  updateProductService,
+} = require("../services/product.services.js");
 
 exports.getProducts = async (req, res, next) => {
   try {
-    const product = await Product.find({});
+    const product = await getProductsService();
 
     res.status(200).json({
       status: "Success",
@@ -20,17 +24,8 @@ exports.getProducts = async (req, res, next) => {
 
 exports.createProduct = async (req, res, next) => {
   try {
-    // save
-    // const product = new Product(req.body);
-
-    // if (product.quantity == 0) {
-    //   product.status = "out-of-stock";
-    // }
-
-    // const result = await product.save();
-
     // create
-    const result = await Product.create(req.body);
+    const result = await createProductService(req.body);
 
     result.logger();
 
@@ -45,6 +40,26 @@ exports.createProduct = async (req, res, next) => {
     res.status(400).json({
       status: "Fail",
       message: "Data not inserted",
+      error: error.message,
+    });
+  }
+};
+
+exports.updateProduct = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const result = await updateProductService(id, req.body);
+
+    res.status(200).json({
+      status: "Success",
+      message: "Data updated Successfully",
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "Fail",
+      message: "Could not update the product",
       error: error.message,
     });
   }
