@@ -2,7 +2,11 @@
 
 [Live server]()
 
-This is my first project where I am designing the <b>Schema</b> and using <b>MVC-Architecture</b>. [Mongoose](https://mongoosejs.com/) is used here to design the schema efficiently and effectively.
+This is my first project where I am designing the <b>Schema</b> and using <b>MVC-Architecture</b>. [Mongoose](https://mongoosejs.com/) is used here to develope the project efficiently and giving it an industry level feel.
+
+### Topics covered
+
+I used <b>Service Layer Architecture with MVC</b>. The concepts used in this projects are <b>Fat Model/Thin Controller</b> and <b>Separation of Concern</b>. By using these concepts the code is structured in an organized way.
 
 ### Installed packages
 
