@@ -2,7 +2,7 @@ const Product = require("../models/Product.js");
 
 exports.getProducts = async (req, res, next) => {
   try {
-    const product = await Product.findById("6325a0c81e7a0ddea86416d2");
+    const product = await Product.find({});
 
     res.status(200).json({
       status: "Success",
