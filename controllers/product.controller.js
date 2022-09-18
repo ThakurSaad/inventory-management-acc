@@ -1,3 +1,4 @@
+const Product = require("../models/Product");
 const {
   getProductsService,
   createProductService,
@@ -39,6 +40,26 @@ exports.createProduct = async (req, res, next) => {
     res.status(400).json({
       status: "Fail",
       message: "Data not inserted",
+      error: error.message,
+    });
+  }
+};
+
+exports.updateProduct = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const result = await Product.updateOne({ _id: id }, { $set: req.body });
+
+    res.status(200).json({
+      status: "Success",
+      message: "Data updated Successfully",
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "Fail",
+      message: "Could not update the product",
       error: error.message,
     });
   }
