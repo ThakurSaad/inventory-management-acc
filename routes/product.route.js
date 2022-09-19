@@ -9,6 +9,9 @@ router
 
 router.route("/bulk-update").patch(productController.bulkUpdateProduct);
 
-router.route("/:id").patch(productController.updateProductById);
+router
+  .route("/:id")
+  .patch(productController.updateProductById)
+  .delete(productController.deleteProductById);
 
 module.exports = router;
