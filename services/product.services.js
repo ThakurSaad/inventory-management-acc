@@ -1,7 +1,7 @@
 const Product = require("../models/Product");
 
-exports.getProductsService = async (query) => {
-  const products = await Product.find(query);
+exports.getProductsService = async () => {
+  const products = await Product.find({});
   return products;
 };
 
