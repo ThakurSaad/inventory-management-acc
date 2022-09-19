@@ -19,13 +19,11 @@ exports.getProducts = async (req, res, next) => {
 
     if (req.query.sort) {
       const sortBy = req.query.sort.split(",").join(" ");
-
       queries.sortBy = sortBy;
     }
 
     if (req.query.fields) {
       const fields = req.query.fields.split(",").join(" ");
-
       queries.fields = fields;
     }
 
