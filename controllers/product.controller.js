@@ -9,11 +9,18 @@ const {
 
 exports.getProducts = async (req, res, next) => {
   try {
-    const filters = { ...req.query };
-
+    let filters = { ...req.query };
     const excludeFields = ["sort", "page", "limit"];
 
     excludeFields.forEach((field) => delete filters[field]);
+
+    let filterString = JSON.stringify(filters);
+    filterString = filterString.replace(
+      /\b(gt|gte|lt|lte|eq)\b/g,
+      (match) => `$${match}`
+    );
+
+    filters = JSON.parse(filterString);
 
     const queries = {};
 
