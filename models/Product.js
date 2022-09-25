@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-// schema design
 const productSchema = mongoose.Schema(
   {
     name: {
@@ -12,10 +11,12 @@ const productSchema = mongoose.Schema(
       minLength: [3, "Name must be at least 3 characters"],
       maxLength: [100, "Name is too large"],
     },
+
     description: {
       type: String,
       required: true,
     },
+
     unit: {
       type: String,
       required: true,
@@ -24,6 +25,7 @@ const productSchema = mongoose.Schema(
         message: "unit value can not be value, must be kg/liter/pcs",
       },
     },
+
     imageURL: [
       {
         type: String,
@@ -46,10 +48,12 @@ const productSchema = mongoose.Schema(
         },
       },
     ],
+
     category: {
       type: String,
       required: true,
     },
+
     brand: {
       name: {
         type: String,
@@ -61,34 +65,12 @@ const productSchema = mongoose.Schema(
         required: true,
       },
     },
-    // createdAt: {
-    //   type: Date,
-    //   default: Date.now,
-    // },
-    // updatedAt: {
-    //   type: Date,
-    //   default: Date.now,
-    // },
-    // supplier: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "Supplier",
-    // },
-    // categories: [
-    //   {
-    //     name: {
-    //       type: String,
-    //       required: true,
-    //     },
-    //     _id: mongoose.Schema.Types.ObjectId,
-    //   },
-    // ],
   },
   {
     timestamps: true,
   }
 );
 
-// mongoose middleware for saving data: pre
 productSchema.pre("save", function (next) {
   console.log("Before saving data");
 
@@ -99,19 +81,6 @@ productSchema.pre("save", function (next) {
   next();
 });
 
-// // mongoose middleware for saving data: post
-// productSchema.post("save", function (doc, next) {
-//   console.log("After saving data");
-
-//   next();
-// });
-
-// mongoose instance methods
-productSchema.methods.logger = function () {
-  console.log(`Data saved for ${this.name}`);
-};
-
-// creating model
 const Product = mongoose.model("Product", productSchema);
 
 module.exports = Product;
