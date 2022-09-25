@@ -12,23 +12,29 @@ const brandSchema = mongoose.Schema(
       maxLength: 100,
       lowercase: true,
     },
+
     description: String,
+
     email: {
       type: String,
       lowercase: true,
       validate: [validator.isEmail, "Please provide a valid email"],
     },
+
     website: {
       type: String,
       validate: [validator.isURL, "Please provide a valid URL"],
     },
+
     location: String,
+
     products: [
       {
         type: ObjectId,
         ref: "Product",
       },
     ],
+
     suppliers: [
       {
         name: String,
@@ -39,6 +45,7 @@ const brandSchema = mongoose.Schema(
         },
       },
     ],
+
     status: {
       type: String,
       enum: ["active", "inactive"],
