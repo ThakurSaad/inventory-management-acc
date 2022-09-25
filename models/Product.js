@@ -46,6 +46,21 @@ const productSchema = mongoose.Schema(
         },
       },
     ],
+    category: {
+      type: String,
+      required: true,
+    },
+    brand: {
+      name: {
+        type: String,
+        required: true,
+      },
+      id: {
+        type: ObjectId,
+        ref: "Brand",
+        required: true,
+      },
+    },
     // createdAt: {
     //   type: Date,
     //   default: Date.now,
