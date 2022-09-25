@@ -15,42 +15,12 @@ const productSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    price: {
-      type: Number,
-      required: true,
-      min: [0, "Price can not be negative"],
-    },
     unit: {
       type: String,
       required: true,
       enum: {
         values: ["kg", "litre", "pcs"],
         message: "unit value can not be value, must be kg/liter/pcs",
-      },
-    },
-    quantity: {
-      type: Number,
-      required: true,
-      min: [0, "Quantity can not be negative"],
-      validate: {
-        validator: (value) => {
-          const isInteger = Number.isInteger(value);
-
-          if (isInteger) {
-            return true;
-          } else {
-            return false;
-          }
-        },
-      },
-      message: "Quantity must be an integer",
-    },
-    status: {
-      type: String,
-      required: true,
-      enum: {
-        values: ["in-stock", "out-of-stock", "discontinued"],
-        message: "Status can not be {VALUE}",
       },
     },
     // createdAt: {
