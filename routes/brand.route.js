@@ -7,4 +7,6 @@ router
   .post(brandController.createBrand)
   .get(brandController.getBrands);
 
+router.route("/:id").get(brandController.getBrandById);
+
 module.exports = router;

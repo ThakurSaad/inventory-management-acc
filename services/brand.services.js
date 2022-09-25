@@ -10,3 +10,8 @@ exports.getBrandsService = async () => {
   const total = await Brand.countDocuments();
   return { total, brands };
 };
+
+exports.getBrandByIdService = async (id) => {
+  const brand = await Brand.findOne({ _id: id });
+  return brand;
+};
