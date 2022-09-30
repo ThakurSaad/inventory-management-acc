@@ -25,17 +25,17 @@ exports.createBrand = async (req, res, next) => {
 
 exports.getBrands = async (req, res, next) => {
   try {
-    const result = await getBrandsService();
+    const brands = await getBrandsService();
 
     res.status(200).json({
       status: "Success",
       message: "Brands found",
-      data: result,
+      data: brands,
     });
   } catch (error) {
     res.status(400).json({
       status: "Fail",
-      message: "Brand could not be found",
+      message: "Brands could not be found",
       error: error.message,
     });
   }
@@ -73,7 +73,7 @@ exports.updateBrand = async (req, res, next) => {
     const { id } = req.params;
 
     const result = await updateBrandService(id, req.body);
-    
+
     if (!result.modifiedCount) {
       return res.status(400).json({
         status: "Fail",
