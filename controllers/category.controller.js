@@ -2,6 +2,7 @@ const {
   createCategoryService,
   getCategoryService,
   getCategoryByIdService,
+  updateCategoryByIdService,
 } = require("../services/category.services");
 
 exports.createCategory = async (req, res, next) => {
@@ -62,6 +63,40 @@ exports.getCategoryById = async (req, res, next) => {
     res.status(400).json({
       status: "Fail",
       message: "Categories could not be found for this id",
+      error: error.message,
+    });
+  }
+};
+
+exports.updateCategoryById = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const result = await updateCategoryByIdService(id, req.body);
+
+    if (!result.matchedCount) {
+      return res.status(400).json({
+        status: "Fail",
+        error: `Category could not be found for id ${id}`,
+      });
+    }
+
+    if (!result.modifiedCount) {
+      return res.status(400).json({
+        status: "Fail",
+        error: `Category could not be updated for id ${id}`,
+      });
+    }
+
+    res.status(200).json({
+      status: "Success",
+      message: "Category updated for this id",
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "Fail",
+      message: "Categories could not be updated for this id",
       error: error.message,
     });
   }

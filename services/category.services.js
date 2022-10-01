@@ -15,3 +15,10 @@ exports.getCategoryByIdService = async (id) => {
   const category = await Category.findOne({ _id: id });
   return category;
 };
+
+exports.updateCategoryByIdService = async (id, data) => {
+  const category = await Category.updateOne({ _id: id }, data, {
+    runValidators: true,
+  });
+  return category;
+};
