@@ -23,7 +23,7 @@ exports.createCategory = async (req, res, next) => {
   }
 };
 
-exports.getCategory = async (req, res, next) => {
+exports.getCategories = async (req, res, next) => {
   try {
     const categories = await getCategoryService();
 
