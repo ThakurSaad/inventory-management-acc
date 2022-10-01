@@ -6,7 +6,12 @@ exports.createCategoryService = async (data) => {
 };
 
 exports.getCategoryService = async () => {
-  const category = await Category.find({});
+  const categories = await Category.find({});
   const total = await Category.countDocuments();
-  return { total, category };
+  return { total, categories };
+};
+
+exports.getCategoryByIdService = async (id) => {
+  const category = await Category.findOne({ _id: id });
+  return category;
 };
