@@ -11,16 +11,17 @@ const storeSchema = mongoose.Schema(
       lowercase: true,
       enum: {
         values: [
-          "Dhaka",
-          "Chattogram",
-          "Rajshahi",
-          "Khulna",
-          "Barishal",
-          "Sylhet",
-          "Rangpur",
-          "Mymensingh",
+          "dhaka",
+          "chattogram",
+          "rajshahi",
+          "khulna",
+          "barishal",
+          "sylhet",
+          "rangpur",
+          "mymensingh",
         ],
-        message: "{VALUE} is not a valid name",
+        message:
+          "{VALUE} is not a valid name. Must be dhaka / chattogram / rajshahi / khulna / barishal / sylhet / rangpur / mymensingh",
       },
     },
 
@@ -48,4 +49,4 @@ const storeSchema = mongoose.Schema(
 
 const Store = mongoose.model("Store", storeSchema);
 
-exports = Store;
+module.exports = Store;
