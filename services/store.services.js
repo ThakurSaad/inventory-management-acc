@@ -11,13 +11,13 @@ exports.getStoreService = async () => {
   return { total, stores };
 };
 
-exports.getStoreByIdService = async (id) => {
-  const store = await Store.findOne({ _id: id });
+exports.getStoreByIdService = async (storeId) => {
+  const store = await Store.findOne({ _id: storeId });
   return store;
 };
 
-exports.updateStoreByIdService = async (id, data) => {
-  const result = await Store.updateOne({ _id: id }, data, {
+exports.updateStoreByIdService = async (storeId, data) => {
+  const result = await Store.updateOne({ _id: storeId }, data, {
     runValidators: true,
   });
   return result;
