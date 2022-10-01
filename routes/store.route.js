@@ -7,4 +7,6 @@ router
   .post(storeController.createStore)
   .get(storeController.getStore);
 
+router.route("/:id").get(storeController.getStoreById);
+
 module.exports = router;

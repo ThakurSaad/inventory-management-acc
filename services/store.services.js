@@ -10,3 +10,8 @@ exports.getStoreService = async () => {
   const total = await Store.countDocuments();
   return { total, stores };
 };
+
+exports.getStoreByIdService = async (id) => {
+  const store = await Store.findOne({ _id: id });
+  return store;
+};
