@@ -25,7 +25,7 @@ const storeSchema = mongoose.Schema(
       },
     },
 
-    description: String,
+    description: { type: String },
 
     status: {
       type: String,
@@ -43,7 +43,7 @@ const storeSchema = mongoose.Schema(
     },
   },
   {
-    timestamp: true,
+    timestamps: true,
   }
 );
 
