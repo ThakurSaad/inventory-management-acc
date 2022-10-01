@@ -17,7 +17,7 @@ exports.createCategory = async (req, res, next) => {
   } catch (error) {
     res.status(400).json({
       status: "Fail",
-      message: "Category could not be created",
+      message: "Category not created",
       error: error.message,
     });
   }
@@ -35,7 +35,7 @@ exports.getCategory = async (req, res, next) => {
   } catch (error) {
     res.status(400).json({
       status: "Fail",
-      message: "Categories could not be found",
+      message: "Categories not found",
       error: error.message,
     });
   }
@@ -50,7 +50,7 @@ exports.getCategoryById = async (req, res, next) => {
     if (!category) {
       return res.status(400).json({
         status: "Fail",
-        error: `Category could not be found for id ${id}`,
+        error: `Category not found for id ${id}`,
       });
     }
 
@@ -62,7 +62,7 @@ exports.getCategoryById = async (req, res, next) => {
   } catch (error) {
     res.status(400).json({
       status: "Fail",
-      message: "Categories could not be found for this id",
+      message: "Categories not found for this id",
       error: error.message,
     });
   }
@@ -77,14 +77,14 @@ exports.updateCategoryById = async (req, res, next) => {
     if (!result.matchedCount) {
       return res.status(400).json({
         status: "Fail",
-        error: `Category could not be found for id ${id}`,
+        error: `Category not found for id ${id}`,
       });
     }
 
     if (!result.modifiedCount) {
       return res.status(400).json({
         status: "Fail",
-        error: `Category could not be updated for id ${id}`,
+        error: `Category not updated for id ${id}`,
       });
     }
 
@@ -96,7 +96,7 @@ exports.updateCategoryById = async (req, res, next) => {
   } catch (error) {
     res.status(400).json({
       status: "Fail",
-      message: "Categories could not be updated for this id",
+      message: "Categories not updated for this id",
       error: error.message,
     });
   }
