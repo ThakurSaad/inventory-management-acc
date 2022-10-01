@@ -2,7 +2,7 @@ const {
   createBrandService,
   getBrandsService,
   getBrandByIdService,
-  updateBrandService,
+  updateBrandByIdService,
 } = require("../services/brand.services");
 
 exports.createBrand = async (req, res, next) => {
@@ -68,11 +68,11 @@ exports.getBrandById = async (req, res, next) => {
   }
 };
 
-exports.updateBrand = async (req, res, next) => {
+exports.updateBrandById = async (req, res, next) => {
   try {
     const { id } = req.params;
 
-    const result = await updateBrandService(id, req.body);
+    const result = await updateBrandByIdService(id, req.body);
 
     if (!result.modifiedCount) {
       return res.status(400).json({
