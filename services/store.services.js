@@ -16,8 +16,8 @@ exports.getStoreByIdService = async (storeId) => {
   return store;
 };
 
-exports.updateStoreByIdService = async (storeId, data) => {
-  const result = await Store.updateOne({ _id: storeId }, data, {
+exports.updateStoreByIdService = async (id, data) => {
+  const result = await Store.updateOne({ _id: id }, data, {
     runValidators: true,
   });
   return result;
