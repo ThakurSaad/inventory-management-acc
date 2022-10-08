@@ -6,13 +6,13 @@ exports.createBrandService = async (data) => {
 };
 
 exports.getBrandsService = async () => {
-  const brands = await Brand.find({});
+  const brands = await Brand.find({}).populate("products");
   const total = await Brand.countDocuments();
   return { total, brands };
 };
 
 exports.getBrandByIdService = async (brandId) => {
-  const brand = await Brand.findOne({ _id: brandId });
+  const brand = await Brand.findOne({ _id: brandId }).populate("products");
   return brand;
 };
 

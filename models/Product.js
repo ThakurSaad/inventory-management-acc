@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Schema.Types;
-// const validator = require('validator')
+const valid = require('validator')
 
 const productSchema = mongoose.Schema(
   {
@@ -28,26 +28,11 @@ const productSchema = mongoose.Schema(
       },
     },
 
-    imageURL: [
+    imageURLs: [
       {
         type: String,
         required: true,
-        validate: {
-          validator: (value) => {
-            if (!Array.isArray(value)) return false;
-
-            let isValid = true;
-
-            value.forEach((url) => {
-              if (!validator.isURL(url)) {
-                isValid = false;
-              }
-            });
-
-            return isValid;
-          },
-          message: "Please provide valid image URLs",
-        },
+        validate: [valid.isURL, "wrong url"],
       },
     ],
 
