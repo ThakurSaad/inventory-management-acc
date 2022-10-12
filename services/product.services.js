@@ -2,7 +2,6 @@ const Product = require("../models/Product");
 const Brand = require("../models/Brand");
 
 exports.getProductsService = async (filters, queries) => {
-  // console.log(filters, queries);
   const products = await Product.find(filters)
     .skip(queries.skip)
     .limit(queries.limit)
@@ -25,7 +24,6 @@ exports.createProductService = async (data) => {
     { _id: brand.id },
     { $push: { products: productId } }
   );
-  console.log("createProductService:", res);
 
   return product;
 };
