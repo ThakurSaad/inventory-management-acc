@@ -5,7 +5,7 @@ const uploader = require("../middleware/uploader");
 
 router.post(
   "/file-upload",
-  uploader.single("image"),
+  uploader.array("image"),
   productController.fileUpload
 );
 
