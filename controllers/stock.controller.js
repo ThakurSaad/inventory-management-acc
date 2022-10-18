@@ -1,11 +1,11 @@
-// const {
-//   getStocksService,
-//   createStockService,
-//   bulkUpdateStockService,
-//   deleteStockByIdService,
-//   updateStockByIdService,
-//   bulkDeleteStockService,
-// } = require("../services/stock.services.js");
+const {
+  getStocksService,
+  createStockService,
+  bulkUpdateStockService,
+  deleteStockByIdService,
+  updateStockByIdService,
+  bulkDeleteStockService,
+} = require("../services/stock.services.js");
 
 exports.getStocks = async (req, res, next) => {
   try {
@@ -51,6 +51,7 @@ exports.getStocks = async (req, res, next) => {
       data: stock,
     });
   } catch (error) {
+    console.log(error);
     res.status(400).json({
       status: "Fail",
       message: "Can not get the data",
@@ -61,14 +62,11 @@ exports.getStocks = async (req, res, next) => {
 
 exports.createStock = async (req, res, next) => {
   try {
-    // create
     const result = await createStockService(req.body);
-
-    // result.logger();
 
     res.status(200).json({
       status: "Success",
-      message: "Data inserted Successfully",
+      message: "Stock created successfully",
       data: result,
     });
   } catch (error) {
@@ -76,7 +74,7 @@ exports.createStock = async (req, res, next) => {
 
     res.status(400).json({
       status: "Fail",
-      message: "Data not inserted",
+      message: "Stock can not be created",
       error: error.message,
     });
   }
