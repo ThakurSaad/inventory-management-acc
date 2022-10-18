@@ -15,6 +15,7 @@ exports.createSupplier = async (req, res, next) => {
       data: result,
     });
   } catch (error) {
+    console.log(error);
     res.status(400).json({
       status: "Fail",
       message: "Supplier could not be created",
