@@ -133,4 +133,4 @@ const stockSchema = mongoose.Schema(
 
 const Stock = mongoose.model("Stock", stockSchema);
 
-exports = Stock;
+module.exports = Stock;
