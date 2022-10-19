@@ -14,7 +14,7 @@ exports.singUp = async (req, res, next) => {
 
     res.status(500).json({
       status: "Fail",
-      error,
+      error: error.message,
     });
   }
 };

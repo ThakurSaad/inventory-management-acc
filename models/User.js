@@ -96,7 +96,10 @@ const userSchema = mongoose.Schema(
 
 userSchema.pre("save", function (next) {
   const password = this.password;
-  const hashedPassword = bcrypt.hashSync(password);
+  const saltRounds = 10;
+
+  const salt = bcrypt.genSaltSync(saltRounds);
+  const hashedPassword = bcrypt.hashSync(password, salt);
 
   this.password = hashedPassword;
   this.confirmPassword = undefined;
