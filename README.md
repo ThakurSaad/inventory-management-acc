@@ -23,6 +23,7 @@ I used <b>Service Layer Architecture with MVC</b>. The concepts used in this pro
 - dotenv
 - mongoose
 - colors
+- bcrypt
 
 ### The pattern of Mongoose
 
