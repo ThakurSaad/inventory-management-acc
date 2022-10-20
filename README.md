@@ -24,6 +24,7 @@ I used <b>Service Layer Architecture with MVC</b>. The concepts used in this pro
 - mongoose
 - colors
 - bcrypt
+- jsonwebtoken
 
 ### The pattern of Mongoose
 
