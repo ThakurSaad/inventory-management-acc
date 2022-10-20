@@ -18,3 +18,19 @@ exports.singUp = async (req, res, next) => {
     });
   }
 };
+
+exports.login = async (req, res, next) => {
+  try {
+    res.status(200).json({
+      status: "Success",
+      message: "Successfully signed Up",
+      user: user,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      status: "Fail",
+      error: error.message,
+    });
+  }
+};
